@@ -1,0 +1,64 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+
+    background-color: #ce7646;
+}
+
+#library
+{
+    width: 80%;
+    height: 500px;
+    margin: 70px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+   
+    gap: 40px;
+
+}
+
+.book
+{
+    width: 100%;
+    height: 700px;
+
+    background-color: antiquewhite;
+
+    border: 4px rgb(160, 150, 137) solid;
+
+    border-radius: 20px;
+}
+
+.stripes
+{
+    background-color: rgb(133, 111, 84);
+    width: 100%;
+    height: 80px;
+    position: relative;
+    top: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.stripe
+{
+    background-color: black;
+    width: 100%;
+    height: 20px;
+    
+}
+
+
+.info
+{
+    height: 80%;
+
+    margin-top: 200px;
+}
