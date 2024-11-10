@@ -27,6 +27,8 @@ body
    
     gap: 40px;
 
+    row-gap: 70px;
+
 }
 
 .book
@@ -115,6 +117,36 @@ body
     text-shadow: 1px 1px black;
     font-size: 1.2rem;
 }
+
+.change
+{
+    font-weight: 100;
+    font-size: 1.0rem;
+
+    width: 70px;
+    height: 20px;
+}
+
+.delete
+{
+    background-color: rgb(155, 48, 15);
+    border: 2px solid rgb(41, 12, 4);
+
+    width: 200px;
+    height: 40px;
+
+    position: relative;
+    left: 20px;
+    bottom: -35px;
+
+    border-radius: 20px;
+}
+
+.delete:hover
+{
+    background-color: rgb(97, 28, 6);
+    border: 2px solid rgb(0, 0, 0);
+}
 #new-button
 {
 
@@ -163,3 +195,4 @@ input[type="checkbox"]
     height: 40px;
 
 }
+

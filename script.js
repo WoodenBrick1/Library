@@ -8,6 +8,7 @@ const form = document.getElementById("new-book")
 
 const library = [];
 
+let countID = 0; 
 
 
 function Book(title, author, pages, read)
@@ -37,13 +38,20 @@ addBook(book4);
 
 function displayBooks()
 {
+    countID = 0;
     libraryMain.innerHTML = "";
     for (let book of library)
     {
+        
+        book.id = countID;
+
+        countID++;
+
+
         libraryMain.innerHTML += "";
         const {title, author, pages, read} = book;
         libraryMain.innerHTML += 
-        `<div class="book">
+        `<div class="book" id=${book.id}>
         <div class="stripes">
             <div class="stripe"></div>
             <div class="stripe"></div>   
@@ -53,18 +61,63 @@ function displayBooks()
             <div class="name"><p>Name:</p>${title}</div>
             <div class="author"><p>Author:</p>${author}</div>
             <div class="pages"><p>Pages:</p>${pages}</div>
-            <div class="read"><p>Read?:</p>${read ? "Yes" : "No"}</div>
+            <div class="read"><p>Read?:</p><p class="readText">${read ? "Yes" : "No"}</p> <button class="btn change">Change</button></div>
         </div>
+
+        <button class="delete btn">Delete Book</button>
     </div>`;
 
         
         
     }
     addNew();
-    
+    changeButtons();
+    deleteButtons()
+    console.log(library);
     
 }
 
+
+// Change the Reading state
+function changeButtons()
+{
+    const buttons = Array.from(document.getElementsByClassName("change"));
+    buttons.forEach((button, index) => button.addEventListener('click', () => 
+    {
+        for (let book of library)
+        {
+            if(book.id == index)
+            {
+                book.read = !(book.read);
+
+                document.getElementById(index)
+                .querySelector(".info")
+                .lastElementChild.
+                    querySelector(".readText").textContent = book.read ? "Yes" : "No";
+            }
+        }
+    }
+    ));
+}
+
+function deleteButtons()
+{
+    const buttons = Array.from(document.getElementsByClassName("delete"));
+    buttons.forEach((button, index) => button.addEventListener('click', () => 
+    {
+        for (let book of library)
+        {
+            if(book.id == index)
+            {
+
+                document.getElementById(index).remove();
+                library.splice(index, 1);
+            }
+        }
+    }
+    ));
+}
+// Add a new book
 function addNew(){
     libraryMain.innerHTML += 
     
@@ -85,7 +138,7 @@ function addNew(){
                 <p>Read?:<input type="checkbox" id="read"></p>
     
                 <button id="add-book" class="btn" >Add Book</button>
-            </div>`
+            </div>`;
 
     const addBtn = document.querySelector("#add-book");
     addBtn.addEventListener("click", () =>
@@ -123,5 +176,4 @@ function addNew(){
 
 
 
-
-displayBooks();
+document.addEventListener("DOMContentLoaded", (event) => displayBooks());
