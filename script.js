@@ -1,6 +1,11 @@
 
 const libraryMain = document.getElementById("library");
 
+const form = document.getElementById("new-book")
+
+
+
+
 const library = [];
 
 
@@ -32,11 +37,11 @@ addBook(book4);
 
 function displayBooks()
 {
-
+    libraryMain.innerHTML = "";
     for (let book of library)
     {
+        libraryMain.innerHTML += "";
         const {title, author, pages, read} = book;
-        console.log(book);
         libraryMain.innerHTML += 
         `<div class="book">
         <div class="stripes">
@@ -51,8 +56,72 @@ function displayBooks()
             <div class="read"><p>Read?:</p>${read ? "Yes" : "No"}</div>
         </div>
     </div>`;
+
+        
+        
     }
+    addNew();
+    
     
 }
+
+function addNew(){
+    libraryMain.innerHTML += 
+    
+    `<div id="new" class="book">
+
+    
+            <div class="stripes">
+                <div class="stripe"></div>
+                <div class="stripe"></div>   
+            </div>
+            
+            <button id="new-button" class="btn">New Button</button>
+            <div class="info" id="new-book">
+            
+                <p>Name:<input type="text" id="name" required></p>
+                <p>Author:<input type="text" id="author" required></p>
+                <p>Pages:<input type="text" id="pages" required></p>
+                <p>Read?:<input type="checkbox" id="read"></p>
+    
+                <button id="add-book" class="btn" >Add Book</button>
+            </div>`
+
+    const addBtn = document.querySelector("#add-book");
+    addBtn.addEventListener("click", () =>
+    {
+        
+       
+        
+        const title = document.getElementById("name").value;
+        const author = document.getElementById("author").value;
+        const pages = document.getElementById("pages").value;
+        const read = document.querySelector("#read").checked;
+
+        const book = new Book(title, author, pages, read);
+
+        addBook(book);
+
+        displayBooks();
+        console.log(title);
+    })
+
+    const inputs = document.getElementById("new-book");
+
+    inputs.style.display = "none";
+    const newButton = document.getElementById("new-button");
+
+    newButton.addEventListener("click", () =>
+    {
+        inputs.style.display = "flex";
+
+        newButton.style.display = "none";
+    })
+}
+
+
+
+
+
 
 displayBooks();

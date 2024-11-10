@@ -81,7 +81,7 @@ body
     font-size: 1.2rem;
 }
 
-div > p
+.info  p
 {
     font-weight: 600;
 
@@ -107,6 +107,14 @@ div > p
 }
 
 
+.btn
+{
+    background-color: rgb(143,159,171);
+    color: white;
+    font-weight: 800;
+    text-shadow: 1px 1px black;
+    font-size: 1.2rem;
+}
 #new-button
 {
 
@@ -118,10 +126,40 @@ div > p
 
     width: 150px;
     height: 60px;
+}
 
-    background-color: rgb(143,159,171);
-    color: white;
-    font-weight: 800;
-    text-shadow: 1px 1px black;
+
+#new > .info
+{
+    gap: 50px;
+}
+input[type="text"]
+{
+    width: 150px;
+    height: 25px;
+
     font-size: 1.2rem;
+}
+
+input[type="checkbox"]
+{
+    width: 20px;
+    height: 20px;
+
+    position: relative;
+    left: 10px;
+    top: 2px;
+    
+}
+
+#add-book
+{
+    position: relative;
+
+ 
+    right: 10px;
+
+    width: 150px;
+    height: 40px;
+
 }
