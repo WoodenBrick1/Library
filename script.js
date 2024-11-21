@@ -176,4 +176,4 @@ function addNew(){
 
 
 
-document.addEventListener("DOMContentLoaded", (event) => displayBooks());
+document.addEventListener("DOMContentLoaded", () => displayBooks());
